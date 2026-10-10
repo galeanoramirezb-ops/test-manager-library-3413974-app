@@ -49,3 +49,28 @@ antes de las 3:00 p. m.**: no se presenta nada que no esté en GitHub.
 | [`test-manager-library-3413974-page`](https://github.com/code-sena/test-manager-library-3413974-page) | Sitio público estático de presentación |
 | [`test-manager-library-3413974-infra`](https://github.com/code-sena/test-manager-library-3413974-infra) | Contenedores, red, volúmenes y motor de base de datos vacío |
 | [`test-manager-library-3413974-tool`](https://github.com/code-sena/test-manager-library-3413974-tool) | Utilidades: sembrador de datos de demostración |
+
+## Características Implementadas (Tarea T-22)
+
+La aplicación SPA en React cubre todo el flujo operativo de la biblioteca:
+
+- **Autenticación (HU-01 / HU-02)**: Pantalla de inicio de sesión con JWT y control de sesión persistente en `localStorage`.
+- **Catálogo de Libros (HU-03 / HU-04)**: Búsqueda reactiva, filtrado por categorías fijas, paginación, creación, edición, subida de portadas y eliminación lógica de libros.
+- **Gestión de Miembros (HU-05)**: CRUD completo de socios con visualización de préstamos activos en tiempo real.
+- **Préstamos y Devoluciones (HU-06 / HU-07)**: Registro de préstamos con regla de 14 días y límite de 3 ejemplares; vista detallada y marcado de devolución por ejemplar.
+- **Préstamos Vencidos (HU-09)**: Vista prioritaria con conteo de días en mora para préstamos abiertos que superan la fecha límite.
+- **Reporte de Más Prestados (HU-10 / ADR-004)**: Consulta analítica por rango de fechas (`from` / `to`) con límite configurable y ranking de libros más solicitados.
+
+## Ejecución
+
+### Mediante Docker (Recomendado)
+```bash
+docker compose up -d --build app
+# Acceder a http://localhost:3000
+```
+
+### Desarrollo local
+```bash
+npm install
+npm run dev
+```
